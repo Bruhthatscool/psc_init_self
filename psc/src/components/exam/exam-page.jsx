@@ -21,7 +21,7 @@ export function ExamPage() {
             Exam Not Found
           </h1>
           <button
-            onClick={() => navigate('/dashboard')}
+            onClick={() => navigate("/dashboard")}
             className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity"
           >
             Go Back
@@ -38,7 +38,7 @@ export function ExamPage() {
         <div className="bg-card/60 backdrop-blur-md shadow-xl rounded-2xl p-6 md:p-8">
           <div className="flex items-center justify-between mb-4">
             <button
-              onClick={() => navigate('/dashboard')}
+              onClick={() => navigate("/dashboard")}
               className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
             >
               <svg
@@ -67,7 +67,9 @@ export function ExamPage() {
 
         {/* Subjects Section */}
         <div className="space-y-4">
-          <h2 className="text-3xl font-bold text-foreground">Study Materials</h2>
+          <h2 className="text-3xl font-bold text-foreground">
+            Study Materials
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {exam.subjects.map((subject) => (
               <SubjectTile
