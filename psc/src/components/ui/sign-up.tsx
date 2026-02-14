@@ -2,11 +2,14 @@
 
 import { useState } from "react";
 
+import { useNavigate } from "react-router-dom";
+
 interface SignUpProps {
   onSignInClick?: () => void;
+  onSuccess?: () => void;
 }
 
-export const LightSignUp = ({ onSignInClick }: SignUpProps) => {
+export const LightSignUp = ({ onSignInClick, onSuccess }: SignUpProps) => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -136,7 +139,10 @@ export const LightSignUp = ({ onSignInClick }: SignUpProps) => {
                 You have successfully logged in to your account.
               </p>
               <button
-                onClick={() => setShowSuccessDialog(false)}
+                onClick={() => {
+                  setShowSuccessDialog(false);
+                  if (onSuccess) onSuccess();
+                }}
                 className="w-full px-6 py-3 bg-gradient-to-t from-blue-600 via-blue-500 to-blue-400 hover:from-blue-700 hover:via-blue-600 hover:to-blue-500 text-white font-medium rounded-lg transition-all duration-200"
               >
                 Continue
