@@ -12,7 +12,7 @@
 - Member 1: Anna Grace - RIT, Kottayam
 
 ### Hosted Project Link
-[mention your project hosted link here]
+https://psc-init-self-u5nw.vercel.app/
 
 ### Project Description
 [2-3 lines about what your project does]
@@ -65,14 +65,14 @@ List the key features of your project:
 
 #### Screenshots (Add at least 3)
 
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+![dashboard](dash1.png)
+*dashboard showing exams and notifications*
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+![exam page](exampage.png)
+*separate page for each exam showing materials, quizes*
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+![quiz page](quiz.png)
+*quiz based on selected subject*
 
 #### Diagrams
 
@@ -85,8 +85,6 @@ List the key features of your project:
 
 ![Workflow](docs/workflow.png)
 *Add caption explaining your workflow*
-
----
 
 
 ---
