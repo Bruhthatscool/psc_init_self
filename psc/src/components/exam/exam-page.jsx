@@ -15,7 +15,7 @@ export function ExamPage() {
 
   if (!exam) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-background to-background/95 p-4 flex items-center justify-center">
+      <div className="min-h-screen bg-linear-to-br from-background to-background/95 p-4 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-3xl font-bold text-foreground mb-2">
             Exam Not Found
@@ -32,7 +32,7 @@ export function ExamPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-background/95 p-4 md:p-6">
+    <div className="min-h-screen bg-linear-to-br from-background to-background/95 p-4 md:p-6">
       <div className="max-w-7xl mx-auto px-4 py-10 space-y-10">
         {/* Header */}
         <div className="bg-card/60 backdrop-blur-md shadow-xl rounded-2xl p-6 md:p-8">
@@ -70,22 +70,25 @@ export function ExamPage() {
           <h2 className="text-3xl font-bold text-foreground">
             Study Materials
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {exam.subjects.map((subject) => (
-              <SubjectTile
+              <div
                 key={subject.id}
-                subject={subject}
-                onOpen={setSelectedSubject}
-              />
+                className="bg-card/60 backdrop-blur-md shadow-lg rounded-2xl p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl cursor-pointer flex items-center justify-center min-h-32"
+                onClick={() => setSelectedSubject(subject)}
+              >
+                {/* render the existing SubjectTile inside a smaller wrapper so tiles match upcoming-exams sizing */}
+                <SubjectTile subject={subject} onOpen={setSelectedSubject} />
+              </div>
             ))}
           </div>
         </div>
 
         {/* Question Papers Section */}
-        <QuestionPaperSection papers={exam.questionPapers} />
+        <QuestionPaperSection papers={exam.questionPapers} examId={exam.id} />
 
         {/* Quiz Section */}
-        <QuizSection quizzes={exam.quizzes} />
+        <QuizSection quizzes={exam.quizzes} examId={exam.id} />
       </div>
 
       {/* Material Modal */}

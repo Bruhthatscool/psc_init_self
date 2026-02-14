@@ -7,35 +7,63 @@ import Grainient from "../Grainient";
 
 export function Dashboard() {
   const [selectedLevel, setSelectedLevel] = useState("10");
+  const [lang, setLang] = useState("en");
+
+  const translations = {
+    en: {
+      mainTitle: "KERALA PUBLIC SERVICE COMMISSION",
+      subtitle: "Kerala Public Service Commission",
+      upcomingTitle: "Upcoming Exams",
+      upcomingSubtitle: "Browse all active examinations and important dates",
+      pscTitle: "PSC Examinations",
+      pscSubtitle: "Explore exams by educational qualification level",
+      degreeLabel: "Degree Level",
+    },
+    ml: {
+      mainTitle: "കേരള പബ്ലിക് സർവീസ് കമ്മീഷൻ",
+      subtitle: "കേരള പബ്ലിക് സർവീസ് കമ്മീഷൻ",
+      upcomingTitle: "അറിഞ്ഞിരിക്കേണ്ട പരീക്ഷകൾ",
+      upcomingSubtitle: "സജീവമായ എല്ലാ പരീക്ഷകളും പ്രധാന തീയതികളും",
+      pscTitle: "പി.എസ്. സി പരീക്ഷകൾ",
+      pscSubtitle: "വിദ്യാഭ്യാസ യോഗ്യത അടിസ്ഥാനത്തിൽ പരീക്ഷകൾ",
+      degreeLabel: "ഡിഗ്രി ലെവൽ",
+    },
+  };
 
   const upcomingExams = [
     {
-      title: "Lower Division Clerk (LDC)",
+      title: {
+        en: "Lower Division Clerk (LDC)",
+        ml: "ലോവർ ഡിവിഷൻ ക്ലാർക്ക് (LDC)",
+      },
       lastDate: "20 March 2026",
       status: "Open",
     },
     {
-      title: "Assistant Professor",
+      title: { en: "Assistant Professor", ml: "അസിസ്റ്റന്റ് പ്രൊഫസർ" },
       lastDate: "15 April 2026",
       status: "Closed",
     },
     {
-      title: "Police Constable",
+      title: { en: "Police Constable", ml: "പോലീസ് കോൺസ്റ്റബിൾ" },
       lastDate: "02 May 2026",
       status: "Open",
     },
     {
-      title: "Senior Clerk",
+      title: { en: "Senior Clerk", ml: "സീനിയർ ക്ലാർക്ക്" },
       lastDate: "10 June 2026",
       status: "Result Published",
     },
     {
-      title: "Village Field Assistant",
+      title: {
+        en: "Village Field Assistant",
+        ml: "വില്ലേജ് ഫീൽഡ് അസിസ്റ്റന്റ്",
+      },
       lastDate: "25 July 2026",
       status: "Open",
     },
     {
-      title: "Tax Auditor",
+      title: { en: "Tax Auditor", ml: "ടാക്‌സ് ഓഡിറ്റർ" },
       lastDate: "30 August 2026",
       status: "Closed",
     },
@@ -43,36 +71,126 @@ export function Dashboard() {
 
   const examsByLevel = {
     10: [
-      { title: "Lower Division Clerk (LDC)", examId: "ldc" },
-      { title: "Last Grade Servants (LGS)", examId: null },
-      { title: "Village Field Assistant (VFA)", examId: null },
-      { title: "Police Constable", examId: null },
-      { title: "Assistant Prison Officer", examId: null },
-      { title: "Typist Grade II / Data Entry Operator", examId: null },
-      { title: "Office Attendant / Peon / Watchman", examId: null },
-      { title: "Laboratory Attender", examId: null },
+      {
+        title: {
+          en: "Lower Division Clerk (LDC)",
+          ml: "ലോവർ ഡിവിഷൻ ക്ലാർക്ക് (LDC)",
+        },
+        examId: "ldc",
+      },
+      {
+        title: {
+          en: "Last Grade Servants (LGS)",
+          ml: "ലാസ്റ്റ് ഗ്രേഡ് സർവന്റ്സ് (LGS)",
+        },
+        examId: null,
+      },
+      {
+        title: {
+          en: "Village Field Assistant (VFA)",
+          ml: "വില്ലേജ് ഫീൽഡ് അസിസ്റ്റന്റ് (VFA)",
+        },
+        examId: null,
+      },
+      {
+        title: { en: "Police Constable", ml: "പോലീസ് കോൺസ്റ്റബിൾ" },
+        examId: null,
+      },
+      {
+        title: {
+          en: "Assistant Prison Officer",
+          ml: "അസിസ്റ്റന്റ് പ്രിസൺ ഓഫീസർ",
+        },
+        examId: null,
+      },
+      {
+        title: {
+          en: "Typist Grade II / Data Entry Operator",
+          ml: "ടൈപ്പിസ്റ്റ് ഗ്രേഡ് II / ഡേറ്റാ എൻട്രി ഓപ്പറേറ്റർ",
+        },
+        examId: null,
+      },
+      {
+        title: {
+          en: "Office Attendant / Peon / Watchman",
+          ml: "ഓഫീസ് അറ്റൻഡന്റ് / പീയൺ / വാച്ച്മാൻ",
+        },
+        examId: null,
+      },
+      {
+        title: { en: "Laboratory Attender", ml: "ലബോറട്ടറി അറ്റൻഡർ" },
+        examId: null,
+      },
     ],
     12: [
       {
-        title: "Civil Police Officer / Women Civil Police Officer",
+        title: {
+          en: "Civil Police Officer / Women Civil Police Officer",
+          ml: "സിവിൽ പോലീസ് ഓഫീസർ / വനിതാ സിവിൽ പോലീസ് ഓഫീസർ",
+        },
         examId: null,
       },
-      { title: "Beat Forest Officer", examId: null },
-      { title: "Fireman / Firewoman", examId: null },
-      { title: "Civil Excise Officer", examId: null },
-      { title: "Office Assistant", examId: null },
-      { title: "Computer Assistant Grade II", examId: null },
+      {
+        title: { en: "Beat Forest Officer", ml: "ബീറ്റ് ഫോറസ്റ്റ് ഓഫീസർ" },
+        examId: null,
+      },
+      {
+        title: { en: "Fireman / Firewoman", ml: "ഫയർമാൻ / ഫയർവുമൺ" },
+        examId: null,
+      },
+      {
+        title: { en: "Civil Excise Officer", ml: "സിവിൽ എക്സൈസ് ഓഫിസർ" },
+        examId: null,
+      },
+      {
+        title: { en: "Office Assistant", ml: "ഓഫീസ് അസിസ്റ്റന്റ്" },
+        examId: null,
+      },
+      {
+        title: {
+          en: "Computer Assistant Grade II",
+          ml: "കമ്പ്യൂട്ടർ അസിസ്റ്റന്റ് ഗ്രേഡ് II",
+        },
+        examId: null,
+      },
     ],
     degree: [
-      { title: "University Assistant", examId: null },
       {
-        title: "Secretariat / Kerala Administrative Tribunal (KAT) Assistant",
+        title: {
+          en: "University Assistant",
+          ml: "യുണിവേഴ്സിറ്റി അസിസ്റ്റന്റ്",
+        },
         examId: null,
       },
-      { title: "Sub Inspector of Police (SI)", examId: null },
-      { title: "Excise Inspector", examId: null },
-      { title: "Company / Board / Corporation Assistant", examId: null },
-      { title: "Assistant Jailor", examId: null },
+      {
+        title: {
+          en: "Secretariat / Kerala Administrative Tribunal (KAT) Assistant",
+          ml: "സെക്രറ്ററിയറ്റ് / കേരള അഡ്മിനിസ്‌ട്രേറ്റീവ് ട്രിബ്യൂണൽ (KAT) അസിസ്റ്റന്റ്",
+        },
+        examId: null,
+      },
+      {
+        title: {
+          en: "Sub Inspector of Police (SI)",
+          ml: "സബ് ഇൻസ്പെക്ടർ ഓഫ് പോലീസ് (SI)",
+        },
+        examId: null,
+      },
+      {
+        title: { en: "Excise Inspector", ml: "എക്സൈസ് ഇൻസ്പെക്ടർ" },
+        examId: null,
+      },
+      {
+        title: {
+          en: "Company / Board / Corporation Assistant",
+          ml: "കമ്പനി / ബോർഡ് / കോർപ്പറേഷൻ അസിസ്റ്റന്റ്",
+        },
+        examId: null,
+      },
+      {
+        title: { en: "Assistant Jailor", ml: "അസിസ്റ്റന്റ് ജയിലർ" },
+        examId: null,
+      },
     ],
   };
 
@@ -115,20 +233,29 @@ export function Dashboard() {
               {/* Left Side - Title */}
               <div className="space-y-2">
                 <h1 className="text-3xl md:text-4xl font-bold text-foreground">
-                  KERALA PUBLIC SERVICE COMMISSION
+                  {translations[lang].mainTitle}
                 </h1>
                 <p className="text-2xl md:text-3xl text-muted-foreground font-semibold">
-                  കേരള പബ്ലിക് സർവീസ് കമ്മീഷൻ
+                  {translations[lang].subtitle}
                 </p>
               </div>
 
-              {/* Right Side - Logo */}
-              <div className="flex justify-center md:justify-end">
-                <img
-                  src={kpscLogo}
-                  alt="KPSC Logo"
-                  className="h-24 md:h-32 object-contain rounded-xl shadow-lg"
-                />
+              {/* Right Side - Toggle + Logo */}
+              <div className="flex flex-col items-end gap-3">
+                <button
+                  onClick={() => setLang((l) => (l === "en" ? "ml" : "en"))}
+                  className="px-4 py-2 bg-card/60 backdrop-blur-md rounded-lg text-sm font-medium hover:bg-card/80 transition-colors"
+                >
+                  {lang === "en" ? "മലയാളം" : "English"}
+                </button>
+
+                <div className="flex justify-center md:justify-end">
+                  <img
+                    src={kpscLogo}
+                    alt="KPSC Logo"
+                    className="h-24 md:h-32 object-contain rounded-xl shadow-lg"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -144,10 +271,10 @@ export function Dashboard() {
           <div className="space-y-4">
             <div className="space-y-2">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                Upcoming Exams
+                {translations[lang].upcomingTitle}
               </h2>
               <p className="text-muted-foreground">
-                Browse all active examinations and important dates
+                {translations[lang].upcomingSubtitle}
               </p>
             </div>
 
@@ -155,7 +282,7 @@ export function Dashboard() {
               {upcomingExams.map((exam, index) => (
                 <ExamTile
                   key={index}
-                  title={exam.title}
+                  title={exam.title[lang]}
                   lastDate={exam.lastDate}
                   status={exam.status}
                 />
@@ -170,10 +297,10 @@ export function Dashboard() {
           <div className="space-y-4">
             <div className="space-y-2">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                PSC Examinations
+                {translations[lang].pscTitle}
               </h2>
               <p className="text-muted-foreground">
-                Explore exams by educational qualification level
+                {translations[lang].pscSubtitle}
               </p>
             </div>
 
@@ -189,7 +316,9 @@ export function Dashboard() {
                       : "bg-card/60 backdrop-blur-md text-foreground hover:bg-card/80"
                   }`}
                 >
-                  {level === "degree" ? "Degree Level" : `${level}th Level`}
+                  {level === "degree"
+                    ? translations[lang].degreeLabel
+                    : `${level}th Level`}
                 </button>
               ))}
             </div>
@@ -199,7 +328,7 @@ export function Dashboard() {
               {examsByLevel[selectedLevel].map((exam, index) => (
                 <PscExamTile
                   key={index}
-                  title={exam.title}
+                  title={exam.title[lang]}
                   examId={exam.examId}
                 />
               ))}
