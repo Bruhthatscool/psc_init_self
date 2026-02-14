@@ -118,13 +118,11 @@ _Explain what the video demonstrates - key features, user flow, technical highli
 
 If you used AI tools during development, document them here for transparency:
 
-**Tool Used:** [e.g., GitHub Copilot, v0.dev, Cursor, ChatGPT, Claude]
+**Tool Used:** Github Copilot, ChatGPT
 
 **Purpose:** [What you used it for]
 
-- Example: "Generated boilerplate React components"
-- Example: "Debugging assistance for async functions"
-- Example: "Code review and optimization suggestions"
+- "Generated boilerplate React components"
 
 **Key Prompts Used:**
 
@@ -132,13 +130,11 @@ If you used AI tools during development, document them here for transparency:
 - "Debug this async function that's causing race conditions"
 - "Optimize this database query for better performance"
 
-**Percentage of AI-generated code:** [Approximately X%]
+**Percentage of AI-generated code:** 98%
 
 **Human Contributions:**
 
 - Architecture design and planning
-- Custom business logic implementation
-- Integration and testing
 - UI/UX design decisions
 
 _Note: Proper documentation of AI usage demonstrates transparency and earns bonus points in evaluation!_
